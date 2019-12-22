@@ -1,0 +1,48 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["prettier" ],
+  "extends": [
+    "eslint:recommended",
+    "prettier",
+    "prettier/@typescript-eslint",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "globals": { "process": true },
+  "rules": {
+    "prettier/prettier": "error",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "ignoreRestSiblings": true
+      }
+    ]
+  },
+  "settings": {
+    "polyfills": [
+      "fetch",
+      "Promise",
+      "Object.values",
+      "Object.assign",
+      "Object.entries",
+      "Number.parseInt",
+      "Number.isNaN",
+      "Array.from",
+      "Intl.PluralRules",
+      "Headers",
+      "Number.isFinite",
+      "Math.trunc"
+    ],
+    "import/parsers": {
+      "@typescript-eslint/parser": [".js", ".ts", ".tsx"]
+    }
+  }
+}
