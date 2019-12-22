@@ -9,7 +9,8 @@
     "typescript": "^3.7.2"
   },
   "scripts": {
-    "start": "nodemon",
+    "start": "ts-node ./src/main.ts",
+    "start:dev": "nodemon",
     "eslint": "eslint --ext .js,.ts,.tsx src/",
     "prettier": "prettier -c \"src/**/*.{ts,tsx}\"",
     "lint": "npm-run-all \"eslint\" \"prettier\" \"stylelint\""
