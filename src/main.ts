@@ -1,8 +1,6 @@
 import express from 'express';
-
-const app = express();
-
-const INVALID_DATE = 'Invalid Date';
+import cors from 'cors';
+import path from 'path';
 
 interface Timestamp {
   unix: number;
@@ -12,6 +10,14 @@ interface Timestamp {
 interface TimestampError {
   error: string;
 }
+
+const INVALID_DATE = 'Invalid Date';
+
+const app = express();
+
+app.set('views', path.join(__dirname, 'views'));
+app.use(cors({ optionsSuccessStatus: 200 }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 const prepareDateResponse = (date: Date): Timestamp => ({
   unix: date.getTime(),
@@ -41,7 +47,7 @@ const getTimestampObject = (
 };
 
 app.get('/', (_, res) => {
-  res.redirect('/api/timestamp');
+  res.sendFile(__dirname + '/views/index.html');
 });
 
 app.get('/api/timestamp/:date_string?', (req, res) => {
