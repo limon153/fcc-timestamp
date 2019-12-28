@@ -2,16 +2,17 @@ import express from 'express';
 import cors from 'cors';
 import path from 'path';
 
+const INVALID_DATE = 'Invalid Date';
+
 interface Timestamp {
   unix: number;
   utc: string;
 }
 
 interface TimestampError {
-  error: string;
+  unix: null;
+  utc: typeof INVALID_DATE;
 }
-
-const INVALID_DATE = 'Invalid Date';
 
 const app = express();
 
@@ -42,7 +43,7 @@ const getTimestampObject = (
 
     return prepareDateResponse(date);
   } catch (e) {
-    return { error: e.message };
+    return { unix: null, utc: e.message };
   }
 };
 
