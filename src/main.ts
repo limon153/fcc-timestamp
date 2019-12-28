@@ -53,4 +53,4 @@ app.get('/api/timestamp/:date_string?', (req, res) => {
   res.json(responseObj);
 });
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
