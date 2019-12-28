@@ -40,6 +40,10 @@ const getTimestampObject = (
   }
 };
 
+app.get('/', (_, res) => {
+  res.redirect('/api/timestamp');
+});
+
 app.get('/api/timestamp/:date_string?', (req, res) => {
   const dateString = req.params.date_string;
 
