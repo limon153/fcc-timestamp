@@ -10,8 +10,7 @@ interface Timestamp {
 }
 
 interface TimestampError {
-  unix: null;
-  utc: typeof INVALID_DATE;
+  error: string;
 }
 
 const app = express();
@@ -43,7 +42,7 @@ const getTimestampObject = (
 
     return prepareDateResponse(date);
   } catch (e) {
-    return { unix: null, utc: e.message };
+    return { error: e.message };
   }
 };
 
