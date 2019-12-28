@@ -34,7 +34,7 @@ const getTimestampObject = (
   }
 
   try {
-    const unixDate = parseInt(dateString);
+    const unixDate = Number(dateString);
     const date = new Date(isNaN(unixDate) ? dateString : unixDate);
 
     if (date.toString() === INVALID_DATE) {
