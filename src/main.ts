@@ -55,11 +55,6 @@ app.get('/api/timestamp/:date_string?', (req, res) => {
   const dateString = req.params.date_string;
 
   const responseObj = getTimestampObject(dateString);
-  const isError = 'error' in responseObj;
-
-  if (isError) {
-    res.statusCode = 400;
-  }
 
   res.json(responseObj);
 });
